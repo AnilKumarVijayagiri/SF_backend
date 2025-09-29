@@ -26,11 +26,20 @@ const fetch = require('node-fetch');
 const crypto = require('crypto');
 const cors = require('cors');
 
+
+
 const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: [
+        'https://sf-lyart.vercel.app',
+        'http://localhost:3000',
+        'http://127.0.0.1:3000'
+    ],
+    credentials: true
+}));
 
 // Validate environment variables
 const REQUIRED_ENV_VARS = ['RAZORPAY_KEY_ID', 'RAZORPAY_KEY_SECRET'];
@@ -136,3 +145,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV}`);
 });
+
