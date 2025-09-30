@@ -20,7 +20,7 @@
 //   const generated_signature = crypto.createHmac('sha256','8S2nF3t718Yxsi7U4De6GEkI').update(order_id + "|" + payment_id).digest('hex');
 //   res.json({ valid: generated_signature===signature });
 // });
-require('dotenv').config();
+//require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
 const crypto = require('crypto');
@@ -136,3 +136,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV}`);
 });
+
